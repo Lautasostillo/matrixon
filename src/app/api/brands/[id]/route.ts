@@ -3,10 +3,10 @@ import { getStorage } from "@/lib/storage";
 
 export async function GET(
   _req: NextRequest,
-  ctx: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await ctx.params;
+    const { id } = params;
     const storage = getStorage();
     const json = await storage.getBrand(id);
     if (!json) return NextResponse.json({ error: "Brand not found" }, { status: 404 });
@@ -18,10 +18,10 @@ export async function GET(
 
 export async function POST(
   req: NextRequest,
-  ctx: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await ctx.params;
+    const { id } = params;
     const body = await req.text();
     // Optionally validate JSON
     try { JSON.parse(body); } catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
@@ -35,10 +35,10 @@ export async function POST(
 
 export async function PUT(
   req: NextRequest,
-  ctx: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await ctx.params;
+    const { id } = params;
     const body = await req.text();
     try { JSON.parse(body); } catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
     const storage = getStorage();
