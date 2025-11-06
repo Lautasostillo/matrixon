@@ -1,8 +1,8 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import { getStorage } from "@/lib/storage";
 
 export async function GET(
-  _req: NextRequest,
+  _req: Request,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -17,7 +17,7 @@ export async function GET(
 }
 
 export async function POST(
-  req: NextRequest,
+  req: Request,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -34,7 +34,7 @@ export async function POST(
 }
 
 export async function PUT(
-  req: NextRequest,
+  req: Request,
   { params }: { params: { id: string } }
 ) {
   try {
