@@ -1,0 +1,25 @@
+{
+  "name": "Refine",
+  "description": "Refinement wave preset concentrating on 1–2 big levers (Opening/Proof) with moderate diversity.",
+  "diversityTarget": 1.8,
+  "rail": "Learn",
+  "variety": {
+    "Pattern": 3,
+    "Format": 2,
+    "VisualStyle": 2,
+    "Opening": 3,
+    "Tone": 1,
+    "Talent": 1,
+    "CTA": 1,
+    "ProofDevice": 2,
+    "Spec": 1
+  },
+  "budget": {
+    "minSpendFactor": 40,
+    "readDays": 10,
+    "learnRatio": 0.3
+  },
+  "notes": "Iterate winners by changing one major lever at a time (preferably Opener or Proof). Keep variants distinct at the opener.",
+  "impactWeightsOverride": null,
+  "compatRulesOverride": null
+}

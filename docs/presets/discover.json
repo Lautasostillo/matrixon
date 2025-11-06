@@ -1,0 +1,25 @@
+{
+  "name": "Discover",
+  "description": "Exploration wave preset emphasizing big-signal diversity.",
+  "diversityTarget": 2.2,
+  "rail": "Learn",
+  "variety": {
+    "Pattern": 5,
+    "Format": 3,
+    "VisualStyle": 3,
+    "Opening": 3,
+    "Tone": 2,
+    "Talent": 1,
+    "CTA": 1,
+    "ProofDevice": 2,
+    "Spec": 1
+  },
+  "budget": {
+    "minSpendFactor": 40,
+    "readDays": 10,
+    "learnRatio": 0.7
+  },
+  "notes": "Favor few ads with big differences. Strong opener differences. Keep 1–2 major levers per ad to learn cleanly.",
+  "impactWeightsOverride": null,
+  "compatRulesOverride": null
+}

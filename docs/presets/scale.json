@@ -1,0 +1,25 @@
+{
+  "name": "Scale",
+  "description": "Scale wave preset with near-locked combinations and low diversity. Exploitation-focused.",
+  "diversityTarget": 1.2,
+  "rail": "Scale",
+  "variety": {
+    "Pattern": 2,
+    "Format": 1,
+    "VisualStyle": 1,
+    "Opening": 1,
+    "Tone": 1,
+    "Talent": 1,
+    "CTA": 1,
+    "ProofDevice": 1,
+    "Spec": 1
+  },
+  "budget": {
+    "minSpendFactor": 40,
+    "readDays": 10,
+    "learnRatio": 0.2
+  },
+  "notes": "Lock winners into evergreen structure. Keep small exploration tail in separate Learn rail.",
+  "impactWeightsOverride": null,
+  "compatRulesOverride": null
+}

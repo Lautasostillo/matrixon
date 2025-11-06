@@ -1,0 +1,35 @@
+{
+  "brandId": "ddcx",
+  "mainDimension": "Pain Point",
+  "verticalValues": {},
+  "pools": {
+    "TALENTS": [
+      {
+        "id": "X1",
+        "name": "dada"
+      },
+      {
+        "id": "X2",
+        "name": "ssssss"
+      },
+      {
+        "id": "X3",
+        "name": "wwwww"
+      }
+    ]
+  },
+  "rules": {
+    "disallow": [],
+    "allowOnly": []
+  },
+  "impactWeights": {},
+  "pipelineFlags": {
+    "enforceVOFirstSquareDisallow": false
+  },
+  "presets": {},
+  "globals": {
+    "defaultTargetCPA": 50,
+    "defaultMinSpendFactor": 40,
+    "defaultReadDays": 10
+  }
+}

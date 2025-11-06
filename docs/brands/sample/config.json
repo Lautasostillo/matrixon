@@ -1,0 +1,80 @@
+{
+  "brandId": "sample",
+  "globals": {
+    "defaultTargetCPA": 50,
+    "defaultMinSpendFactor": 40,
+    "defaultReadDays": 10
+  },
+  "mainDimension": "Pain Point",
+  "verticalValues": {
+    "Target Persona": ["YoungMale", "BusyMom", "SilverFox"],
+    "Pain Point": ["SafetyConcern", "TimeSaving", "CostSaving"],
+    "Messaging Angle": ["Top", "Mid", "Bottom"],
+    "Core Insight": ["Trust", "FOMO", "Hope"],
+    "Product": ["FeatureA", "FeatureB", "FeatureC"]
+  },
+  "pools": {
+    "PATTERNS": [
+      { "id": "ProblemSolution", "name": "Problem → Solution" },
+      { "id": "TestimonialStory", "name": "Testimonial / Story" }
+    ],
+    "FORMATS": [
+      { "id": "UGC_3ReasonsWhy",  "name": "UGC — 3 Reasons Why",   "cluster": "ScriptShootEdit" },
+      { "id": "Video_PS",         "name": "Video — Problem/Solution", "cluster": "Airpost" }
+    ],
+    "VISUAL_STYLES": [
+      { "id": "TalkingHead", "name": "Talking Head" },
+      { "id": "Lifestyle",   "name": "Lifestyle" }
+    ],
+    "OPENINGS": [
+      { "id": "VisualFirst", "name": "Opening: Visual First" },
+      { "id": "VOFirst",     "name": "Opening: VO First" }
+    ],
+    "TONES": [
+      { "id": "Rational",  "name": "Tone: Rational" },
+      { "id": "Emotional", "name": "Tone: Emotional" }
+    ],
+    "TALENTS": [
+      { "id": "T1", "name": "Talent 1" },
+      { "id": "T2", "name": "Talent 2" }
+    ],
+    "CTAS": [
+      { "id": "ShopNow",    "name": "CTA: Shop Now" },
+      { "id": "LearnMore",  "name": "CTA: Learn More" }
+    ],
+    "PROOFS": [
+      { "id": "ScreenCapture", "name": "Proof: Screen Capture" },
+      { "id": "UGCMontage",    "name": "Proof: UGC Montage" }
+    ],
+    "SPECS": [
+      { "id": "9:16", "name": "Spec: 9:16" },
+      { "id": "1:1",  "name": "Spec: 1:1" }
+    ]
+  },
+  "rules": {
+    "disallow": [
+      { "when": { "Opening": "VOFirst" }, "thenNot": { "Format": ["Static_SP", "Static_MR"] } },
+      { "when": { "ProofDevice": "ScreenCapture" }, "thenNot": { "Format": ["Static_SP","Static_MR"] } }
+    ],
+    "allowOnly": [
+      { "when": { "Pattern": "TestimonialStory" }, "thenOnly": { "Format": ["UGC_3ReasonsWhy","UGC_FlipTheScript","Video_PS"] } }
+    ]
+  },
+  "impactWeights": {
+    "Pattern": 0.9,
+    "Format": 0.85,
+    "VisualStyle": 0.7,
+    "Opening": 0.6,
+    "Tone": 0.6,
+    "Talent": 0.4,
+    "CTA": 0.2
+  },
+  "pipelineFlags": {
+    "enforceVOFirstSquareDisallow": false
+  },
+  "presets": {
+    "discover": "../presets/discover.json",
+    "refine": "../presets/refine.json",
+    "scale": "../presets/scale.json"
+  }
+}

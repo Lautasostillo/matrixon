@@ -1,0 +1,100 @@
+{
+  "name": "Global Rules v2",
+  "scope": "global",
+  "rules": [
+    {
+      "type": "disallow",
+      "if": { "Opening": { "op": "equals", "value": "VO First" } },
+      "then": { "Format": { "startsWith": "Static" } }
+    },
+    {
+      "type": "disallow",
+      "if": { "ProofDevice": { "op": "equals", "value": "Proof: Screen Capture" } },
+      "then": { "Format": { "startsWith": "Static" } }
+    },
+    {
+      "type": "disallow",
+      "if": { "Opening": { "op": "equals", "value": "App HUD First" } },
+      "then": { "VisualStyle": { "op": "equals", "value": "Macro Product" } }
+    },
+    {
+      "type": "disallow",
+      "if": { "Pattern": { "op": "equals", "value": "Before / After" } },
+      "then": { "Format": { "startsWith": "Animated" } }
+    },
+    {
+      "type": "disallow",
+      "if": {
+        "Spec": { "op": "equals", "value": "Spec: 1:1" },
+        "Opening": { "op": "equals", "value": "VO First" }
+      },
+      "then": {}
+    },
+    {
+      "type": "allowOnly",
+      "if": { "Pattern": { "op": "equals", "value": "Testimonial Story" } },
+      "then": {
+        "Format": {
+          "oneOf": [
+            "UGC — 3 Reasons Why",
+            "UGC — Flip the Script",
+            "Video — Problem/Solution"
+          ]
+        }
+      }
+    },
+    {
+      "type": "allowOnly",
+      "if": { "Format": { "op": "startsWith", "value": "Static" } },
+      "then": { "Opening": { "oneOf": ["Copy First"] } }
+    },
+    {
+      "type": "mustInclude",
+      "if": { "Pattern": { "op": "equals", "value": "Before / After" } },
+      "then": {
+        "ProofDevice": {
+          "oneOf": [
+            "Proof: Side-by-Side",
+            "Proof: Metrics Overlay",
+            "Proof: Unboxing"
+          ]
+        }
+      }
+    },
+    {
+      "type": "mustInclude",
+      "if": { "Format": { "op": "startsWith", "value": "Video" } },
+      "then": { "Spec": { "oneOf": ["Spec: 9:16"] } }
+    },
+    {
+      "type": "quota",
+      "field": "Tone",
+      "value": "Tone: Humorous",
+      "maxShare": 0.35
+    },
+    {
+      "type": "quota",
+      "field": "Opening",
+      "value": "SFX First",
+      "maxShare": 0.4
+    },
+    {
+      "type": "prefer",
+      "if": { "Pattern": { "op": "equals", "value": "Myth vs Reality" } },
+      "then": { "ProofDevice": { "op": "equals", "value": "Proof: Metrics Overlay" } },
+      "weight": 0.4
+    },
+    {
+      "type": "prefer",
+      "if": { "Format": { "op": "startsWith", "value": "UGC" } },
+      "then": { "Opening": { "oneOf": ["Copy First", "Location First", "SFX First"] } },
+      "weight": 0.2
+    },
+    {
+      "type": "penalize",
+      "if": { "Tone": { "op": "equals", "value": "Tone: Humorous" } },
+      "then": { "Pattern": { "op": "equals", "value": "Before / After" } },
+      "weight": 0.2
+    }
+  ]
+}

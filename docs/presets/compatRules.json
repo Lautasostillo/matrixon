@@ -1,0 +1,10 @@
+{
+  "disallow": [
+    { "when": { "Opening": "VOFirst" }, "thenNot": { "Format": ["Static_SP", "Static_MR"] } },
+    { "when": { "Opening": "AppHUD" },  "thenNot": { "VisualStyle": ["MacroProduct"] } },
+    { "when": { "ProofDevice": "ScreenCapture" }, "thenNot": { "Format": ["Static_SP", "Static_MR"] } }
+  ],
+  "allowOnly": [
+    { "when": { "Pattern": "TestimonialStory" }, "thenOnly": { "Format": ["UGC_3ReasonsWhy", "UGC_FlipTheScript", "Video_PS"] } }
+  ]
+}
