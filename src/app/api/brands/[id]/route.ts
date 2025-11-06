@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { getStorage } from "@/lib/storage";
 
 export async function GET(
-  _req: Request,
-  { params }: { params: { id: string } }
+  _req: NextRequest,
+  ctx: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await ctx.params;
     const storage = getStorage();
     const json = await storage.getBrand(id);
     if (!json) return NextResponse.json({ error: "Brand not found" }, { status: 404 });
@@ -17,11 +17,11 @@ export async function GET(
 }
 
 export async function POST(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  ctx: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await ctx.params;
     const body = await req.text();
     // Optionally validate JSON
     try { JSON.parse(body); } catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
@@ -34,11 +34,11 @@ export async function POST(
 }
 
 export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  ctx: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await ctx.params;
     const body = await req.text();
     try { JSON.parse(body); } catch { return NextResponse.json({ error: "Invalid JSON" }, { status: 400 }); }
     const storage = getStorage();
